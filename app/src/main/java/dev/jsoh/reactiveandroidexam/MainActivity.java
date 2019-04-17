@@ -18,10 +18,5 @@ public class MainActivity extends AppCompatActivity {
 
         binding.setViewModel(model);
         binding.setLifecycleOwner(this);
-
-
-        // 사용자 입력 & 이벤트
-        findViewById(R.id.add_button).setOnClickListener(v -> model.addCount());
-        findViewById(R.id.remove_button).setOnClickListener(v -> model.subCount());
     }
 }
