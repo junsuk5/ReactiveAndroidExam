@@ -17,20 +17,11 @@ public class MainActivity extends AppCompatActivity {
         MainViewModel model = ViewModelProviders.of(this).get(MainViewModel.class);
 
         binding.setViewModel(model);
+        binding.setLifecycleOwner(this);
 
 
-        findViewById(R.id.add_button).setOnClickListener(v -> {
-            model.count.setValue(model.count.getValue() + 1);
-        });
-        findViewById(R.id.remove_button).setOnClickListener(v -> {
-            model.count.setValue(model.count.getValue() - 1);
-        });
-
-
-        // 관찰자 등록
-        model.count.observe(this, integer -> {
-            // UI 갱신
-            binding.counterTextView.setText(integer + "");
-        });
+        // 사용자 입력 & 이벤트
+        findViewById(R.id.add_button).setOnClickListener(v -> model.addCount());
+        findViewById(R.id.remove_button).setOnClickListener(v -> model.subCount());
     }
 }

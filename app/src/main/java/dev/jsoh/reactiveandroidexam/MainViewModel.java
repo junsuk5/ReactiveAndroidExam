@@ -9,4 +9,13 @@ public class MainViewModel extends ViewModel {
     public MainViewModel() {
         count.setValue(0);
     }
+
+    public void addCount() {
+        count.setValue(count.getValue() + 1);
+    }
+
+    public void subCount() {
+        count.setValue(count.getValue() - 1);
+    }
+
 }
